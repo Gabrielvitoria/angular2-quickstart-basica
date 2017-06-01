@@ -1,4 +1,6 @@
 import { Component} from '@angular/core';
+import { CONTATOS } from './contatos-mock';
+import { Contato } from './contato.model';
 
 @Component({
     moduleId:module.id,
@@ -6,4 +8,7 @@ import { Component} from '@angular/core';
     templateUrl:'contato-lista.compoment.html'
 })
 
-export class ContatosListaComponet{}
+/*Dessa forma define um array de contatos para realizar uma interação no tamplate */
+export class ContatosListaComponet{
+    contatos:Contato[] = CONTATOS;
+}

@@ -1,15 +1,19 @@
-import { NgModule} from '@angular/core';
-import { ContatosListaComponet} from './contatos-lista.componet';
+import { NgModule } from '@angular/core';
+import { ContatosListaComponet } from './contatos-lista.componet';
+import { CommonModule } from '@angular/common';
 
 /*Decorator de acordo com as necessidades */
 @NgModule({
-    declarations:[
+    imports: [
+        CommonModule
+    ],
+    declarations: [
         ContatosListaComponet
     ],
-    exports:[
+    exports: [
         ContatosListaComponet
     ]
 })
 
 
-export class ContatosModule{}
+export class ContatosModule { }
