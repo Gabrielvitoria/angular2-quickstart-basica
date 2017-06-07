@@ -9,6 +9,6 @@ import { Contato } from './contato.model';
 })
 
 /*Dessa forma define um array de contatos para realizar uma interação no tamplate */
-export class ContatosListaComponet{
+export class ContatosListaComponent{
     contatos:Contato[] = CONTATOS;
 }
