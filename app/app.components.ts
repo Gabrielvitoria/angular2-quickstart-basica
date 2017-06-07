@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
+    moduleId:module.id,
     selector: 'my-app',
-    template: `
-            <h2>Curso Angularjs 2</h2>
-            
-            <router-outlet></router-outlet>
-    `
+    templateUrl: 'app.component.html'
+
 })
 export class AppComponent { }
 
