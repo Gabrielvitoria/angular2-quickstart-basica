@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.components';
 import { AppRoutingModule } from './app-routing.module';
 import { ContatosModule } from './contatos/contatos.module';
+import { ClassificacaoModule } from './classificacao/classificacao.module';
 
 
 @NgModule({
     imports: [
         AppRoutingModule,
         BrowserModule,
-        ContatosModule
+        ContatosModule,
+        ClassificacaoModule
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
