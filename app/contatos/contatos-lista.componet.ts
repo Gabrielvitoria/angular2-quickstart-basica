@@ -22,6 +22,11 @@ export class ContatosListaComponent {
     ngOnInit():void {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
-        this.contatos= this.ContatoService.getContatos();
+        this.ContatoService.getContatos()
+        .then((contatos:Contato[])=>{
+            this.contatos = contatos;
+        }).catch(err=>{
+            console.log(err);
+        })
     }
 }

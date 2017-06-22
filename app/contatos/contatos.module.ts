@@ -5,6 +5,7 @@ import { ContatosListaComponent } from './contatos-lista.componet';
 import { ContatoDetalheComponent } from './contato-detalhe.component';
 import { ContatoRoutingModule } from './contato-routing.module';
 import { ContatoService } from './contato.service';
+import { ClassificacaoService } from '../classificacao/classificacao.service';
 
 /*Decorator de acordo com as necessidades */
 @NgModule({
@@ -20,7 +21,8 @@ import { ContatoService } from './contato.service';
         ContatosListaComponent
     ],
     providers:[
-        ContatoService /*Service fica disponivel em todo o módulo de contato */
+        ContatoService, /*Service fica disponivel em todo o módulo de contato */
+        ClassificacaoService
 
     ]
 })
