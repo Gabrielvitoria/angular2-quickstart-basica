@@ -6,12 +6,14 @@ import { ContatoDetalheComponent } from './contato-detalhe.component';
 import { ContatoRoutingModule } from './contato-routing.module';
 import { ContatoService } from './contato.service';
 import { ClassificacaoService } from '../classificacao/classificacao.service';
+import { FormsModule } from '@angular/forms';
 
 /*Decorator de acordo com as necessidades */
 @NgModule({
     imports: [
         CommonModule,
-        ContatoRoutingModule
+        ContatoRoutingModule,
+        FormsModule
     ],
     declarations: [
         ContatoDetalheComponent,
