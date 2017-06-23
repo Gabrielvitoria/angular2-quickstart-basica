@@ -13,4 +13,11 @@ export class ContatoService {
     getContatos():Promise<Contato[]> {
         return Promise.resolve(CONTATOS);
     }
+
+/*Como exemplo:  Na real utilziaria uma api que retorna por id app/conato/id */
+    getPorId(id: number):Promise<Contato>{
+        return this.getContatos()
+        .then((contatos: Contato[]) => contatos.find(contato => contato.id === id) );
+    }
+
 }

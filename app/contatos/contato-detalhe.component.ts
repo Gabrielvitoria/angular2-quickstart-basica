@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { ContatoService } from './contato.service';
+import { Contato } from './contato.model';
 
 
 
@@ -35,6 +36,10 @@ export class ContatoDetalheComponent {
         this.route.params.forEach((params: Params)=>{
             let id: number = +params["id"]
             console.log(id);
+            this.contatoService.getPorId(id)
+            .then((contato:Contato)=>{
+                console.log(contato);
+            });
 
         });
 
