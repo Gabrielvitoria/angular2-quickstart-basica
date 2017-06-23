@@ -42,8 +42,9 @@ export class ContatoDetalheComponent {
                         this.contato = contato;
                     });
             }
-
         });
-
+    }
+    teste():void{
+        console.log();
     }
 }
