@@ -12,11 +12,6 @@ import { ClassificacaoService } from '../classificacao/classificacao.service';
     moduleId: module.id,
     selector: 'contato-detalhe',
     templateUrl: './contato-detalhe.component.html',
-    styles:[`
-        .ng-valid[required]{
-            border:1px solid green;
-        }
-    `]
 })
 
 export class ContatoDetalheComponent {
@@ -49,7 +44,23 @@ export class ContatoDetalheComponent {
             }
         });
     }
-    teste():void{
+
+    getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
+        return {
+            'form-group':true,
+            'has-danger':!isValid && !isPristine,
+            'has-success':isValid && !isPristine
+        }
+    }
+        getFormControlClass(isValid: boolean, isPristine: boolean): {} {
+        return {
+            'form-control':true,
+            'form-control-danger':!isValid && !isPristine,
+            'form-control-success':isValid && !isPristine
+        }
+    }
+
+    teste(): void {
         console.log();
     }
 }

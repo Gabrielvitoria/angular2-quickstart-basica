@@ -1,29 +1,52 @@
 <div class="container">
     <h2>Salvar contato</h2>
-    <form #contatoForm="ngForm">
-        <div class="group">
-            <label for="none">Nome</label>
-            <input type="text" required class="form-control" placeholder="Insira o nome" name="nome" [(ngModel)]="contato.nome" #spy>
-            <div class="alert alert-info"> {{spy.className}}</div>
-        </div>
-        <div class="group">
-            <label for="email">Email</label>
-            <input type="email" required class="form-control" placeholder="Insira o email" name="email" [(ngModel)]="contato.email">
-        </div>
-        <div class="group">
-            <label for="telefone">Telfone</label>
-            <input type="text" required class="form-control" placeholder="Insira o telefone" name="telefone" [(ngModel)]="contato.telefone">
+    <form #contatoForm="ngForm" novalidate> <!-- novalidate: par ao navegador interferir na validação -->
+        <div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
+            <label for="none" class="form-control-label">Nome</label>
+            <input type="text" required placeholder="Insira o nome" 
+                    [ngClass]="getFormControlClass(nome.valid, nome.pristine)" 
+                    required
+                    #nome="ngModel" 
+                    name="nome" 
+                    [(ngModel)]="contato.nome">
+            <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O Campo nome é obrigatório!</div>
         </div>
 
-        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid" >Salvar</button>
-        
+        <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
+            <label for="email">Email</label>
+            <input type="email" required class="form-control" placeholder="Insira o email" 
+                    [ngClass]="getFormControlClass(email.valid, email.pristine)"
+                    required 
+                    #email="ngModel" 
+                    name="email" 
+                    [(ngModel)]="contato.email">
+            <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O Campo e-mail é obrigatório!</div>
+        </div>
+
+        <div [ngClass]="getFormGroupClass(tel.valid, tel.pristine)">
+            <label for="telefone">Telfone</label>
+            <input type="tel" placeholder="Insira o telefone"  name="telefone" 
+                    [ngClass]="getFormControlClass(tel.valid, tel.pristine)"
+                    required 
+                    #tel="ngModel" 
+                    name="telefone" 
+                    [(ngModel)]="tel.telefone">
+            <div class="form-control-feedback" [hidden]="tel.valid || tel.pristine">O Campo telefone é obrigatório!</div>
+                    
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
+
         <a class="btn btn-secondary" routerLink="/">Voltar</a>
 
     </form>
 
 </div>
 
-<!--
+<!--OBS:
+
+#nome="ngModel" : variavel de referencia para o ngModel
+
 forma para estilizar os campos para validação com base no stado do campos
 
 Campo foi visitado: false-> ng-untouched true-> ng-touched
