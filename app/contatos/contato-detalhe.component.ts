@@ -12,6 +12,11 @@ import { ClassificacaoService } from '../classificacao/classificacao.service';
     moduleId: module.id,
     selector: 'contato-detalhe',
     templateUrl: './contato-detalhe.component.html',
+    styles:[`
+        .ng-valid[required]{
+            border:1px solid green;
+        }
+    `]
 })
 
 export class ContatoDetalheComponent {
