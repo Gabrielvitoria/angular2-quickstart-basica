@@ -1,6 +1,11 @@
 // Seguindo o Style guie do Angula2 Modulos para adicionar rotas na aplicação
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+
+import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
+
 import { AppComponent } from './app.components';
 import { AppRoutingModule } from './app-routing.module';
 import { ContatosModule } from './contatos/contatos.module';
@@ -12,7 +17,10 @@ import { ClassificacaoModule } from './classificacao/classificacao.module';
         AppRoutingModule,
         BrowserModule,
         ContatosModule,
-        ClassificacaoModule
+        ClassificacaoModule,
+        HttpModule,
+        InMemoryWebApiModule.forRoot(InMemoryDataService)
+
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
