@@ -13,6 +13,6 @@ export class InMemoryDataService implements InMemoryDbService {
       
         ];
 
-        return {contatos};
+        return {'contatos':contatos};
     }
 }

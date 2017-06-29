@@ -26,7 +26,7 @@ export class ContatosListaComponent {
         .then((contatos:Contato[])=>{
             this.contatos = contatos;
         }).catch(err=>{
-            console.log(err);
+            console.log('Aconteceu um erro:',  err);
         })
     }
 }
