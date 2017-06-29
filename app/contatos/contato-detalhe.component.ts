@@ -19,6 +19,7 @@ export class ContatoDetalheComponent {
     //constructor(private ClassificacaoService: ClassificacaoService) { }
 
     contato: Contato;
+    private isNew: boolean = true;
 
     constructor(
         private contatoService: ContatoService,
@@ -37,6 +38,7 @@ export class ContatoDetalheComponent {
             let id: number = +params["id"]
 
             if (id) {
+                this.isNew = false;
                 this.contatoService.getPorId(id)
                     .then((contato: Contato) => {
                         this.contato = contato;
@@ -47,20 +49,27 @@ export class ContatoDetalheComponent {
 
     getFormGroupClass(isValid: boolean, isPristine: boolean): {} {
         return {
-            'form-group':true,
-            'has-danger':!isValid && !isPristine,
-            'has-success':isValid && !isPristine
+            'form-group': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
         }
     }
-        getFormControlClass(isValid: boolean, isPristine: boolean): {} {
+    getFormControlClass(isValid: boolean, isPristine: boolean): {} {
         return {
-            'form-control':true,
-            'form-control-danger':!isValid && !isPristine,
-            'form-control-success':isValid && !isPristine
+            'form-control': true,
+            'form-control-danger': !isValid && !isPristine,
+            'form-control-success': isValid && !isPristine
         }
     }
 
-    teste(): void {
-        console.log();
+    onSubmit(): void {
+        if (this.isNew) {
+            console.log('novo contato: ',  this.isNew);
+        }
+        else{
+            console.log('editar contato: ', this.isNew);
+        }
+
     }
+
 }

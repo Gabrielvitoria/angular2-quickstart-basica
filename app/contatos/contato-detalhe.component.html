@@ -1,6 +1,8 @@
 <div class="container">
     <h2>Salvar contato</h2>
-    <form #contatoForm="ngForm" novalidate> <!-- novalidate: par ao navegador interferir na validação -->
+
+
+    <form (ngSubmit)="onSubmit()"  #contatoForm="ngForm" novalidate> <!-- novalidate: par ao navegador interferir na validação -->
         <div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
             <label for="none" class="form-control-label">Nome</label>
             <input type="text" required placeholder="Insira o nome" 
