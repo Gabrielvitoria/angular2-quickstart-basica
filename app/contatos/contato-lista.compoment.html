@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <h2>Contatos</h2>
+            <a class="btn btn-sm btn-success" routerLink="/contato/save"> Novo</a>
+
+            <table class="table table-striped table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--Propert bind [routerLink ] 
+                        podendo usar uma anotação de Array,
+                        atributo da classe do componente ou uma variavel.
+                        no caso é um array de js passando a rota de destino.
+                        
+                        [routerLink]="['/contato/save', c.id]"
+                        
+                        Definir uma rota que atenda /contato/save/id
+                    -->
+                    <tr *ngFor="let c of contatos" [routerLink]="['/contato/save', c.id]">
+                        <td>{{c.nome}}</td>
+                        <td>{{c.email}}</td>
+                        <td>{{c.telefone}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm">Deletar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
